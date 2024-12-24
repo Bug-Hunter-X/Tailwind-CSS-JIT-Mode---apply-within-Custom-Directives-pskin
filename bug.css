@@ -1,0 +1,18 @@
+This error occurs when using Tailwind CSS with `@apply` directives within custom directives.  The issue is that Tailwind's JIT mode may not correctly process the `@apply` within the custom directives, leading to styles not being applied or unexpected behavior. For example:
+
+```css
+@layer components {
+  .my-custom-directive {
+    @apply bg-gray-100 p-4 rounded;
+  }
+}
+```
+
+If this custom directive is then used elsewhere:
+
+```html
+<div class="my-custom-directive">
+  Content
+</div>
+```
+The `bg-gray-100`, `p-4`, and `rounded` utility classes might not be applied correctly.
