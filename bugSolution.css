@@ -1,0 +1,13 @@
+Instead of using `@apply`, directly apply the utility classes within your custom directive:
+
+```css
+@layer components {
+  .my-custom-directive {
+    background-color: #f7fafc; /* Replaces bg-gray-100 */
+    padding: 1rem;          /* Replaces p-4 */
+    border-radius: 0.25rem; /* Replaces rounded */
+  }
+}
+```
+
+This approach ensures that the styles are applied correctly, regardless of the JIT mode being used.  Alternatively, if you really need to use `@apply`, ensure that you have declared all the necessary utility classes before using them. You may also try extracting the classes outside the directive or making sure your setup is correct.
